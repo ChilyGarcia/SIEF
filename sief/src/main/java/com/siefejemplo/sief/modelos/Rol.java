@@ -9,7 +9,10 @@ import org.hibernate.validator.constraints.pl.NIP;
 import javax.persistence.*;
 
 @Entity
-@Getter@Setter@AllArgsConstructor@NoArgsConstructor
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "Roles")
 public class Rol {
 

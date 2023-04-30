@@ -21,8 +21,7 @@ public class JwtTokenProvider {
     private int jwtExpirationInMs;
 
 
-    public String generarToken(Authentication authentication)
-    {
+    public String generarToken(Authentication authentication) {
         String username = authentication.getName();
         Date fechaActual = new Date();
         Date fechaExpiracion = new Date(fechaActual.getTime() + jwtExpirationInMs);
@@ -35,22 +34,18 @@ public class JwtTokenProvider {
 
     }
 
-    public String obtenerUsernameDelJWT(String token)
-    {
+    public String obtenerUsernameDelJWT(String token) {
         Claims claims = Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody();
 
         return claims.getSubject();
     }
 
-    public boolean validarToken(String token)
-    {
-        try
-        {
+    public boolean validarToken(String token) {
+        try {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
             return true;
 
-        }catch(SignatureException e)
-        {
+        } catch (SignatureException e) {
             System.out.println("bad");
             return false;
 

@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
 import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
+
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -29,8 +30,7 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
 
         String token = obtenerJWTDeLaSolicitud(request);
 
-        if(StringUtils.hasText(token) && jwtTokenProvider.validarToken(token))
-        {
+        if (StringUtils.hasText(token) && jwtTokenProvider.validarToken(token)) {
             String username = jwtTokenProvider.obtenerUsernameDelJWT(token);
 
             UserDetails userDetails = customUserDetailsService.loadUserByUsername(username);
@@ -44,15 +44,12 @@ public class JWTAuthenticationFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
 
 
-
     }
 
-    private String obtenerJWTDeLaSolicitud(HttpServletRequest request)
-    {
+    private String obtenerJWTDeLaSolicitud(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
 
-        if(StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer"))
-        {
+        if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer")) {
             return bearerToken.substring(7, bearerToken.length());
         }
 
