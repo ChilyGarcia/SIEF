@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.modelmapper.ModelMapper;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping("api")
 public class UsuarioControlador {
 
@@ -47,6 +48,7 @@ public class UsuarioControlador {
 
         return new ResponseEntity<>(usuarioService.registrarUsuario(usuarioRequest, role), HttpStatus.CREATED);
     }
+
 
     @PostMapping("/registro")
     public ResponseEntity<UsuarioResponse> registroPlataforma(@RequestBody UsuarioRegisterRequest usuarioRegisterRequest)
