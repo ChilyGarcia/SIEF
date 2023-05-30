@@ -5,6 +5,9 @@ public class JWTAuthResponseDTO {
     private String tokenDeAcceso;
     private String tipoDeToken = "Bearer";
 
+
+
+
     public JWTAuthResponseDTO(String tokenDeAcceso) {
         super();
         this.tokenDeAcceso = tokenDeAcceso;

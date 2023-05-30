@@ -8,6 +8,7 @@ import com.siefejemplo.sief.modelos.Rol;
 import com.siefejemplo.sief.security.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +16,8 @@ import org.springframework.web.bind.annotation.*;
 import org.modelmapper.ModelMapper;
 
 @RestController
-@CrossOrigin(origins = "*")
-@RequestMapping("api")
+@CrossOrigin("*")
+@RequestMapping(value = "api")
 public class UsuarioControlador {
 
     @Autowired
@@ -49,8 +50,7 @@ public class UsuarioControlador {
         return new ResponseEntity<>(usuarioService.registrarUsuario(usuarioRequest, role), HttpStatus.CREATED);
     }
 
-
-    @PostMapping("/registro")
+    @PostMapping(value = "/registro")
     public ResponseEntity<UsuarioResponse> registroPlataforma(@RequestBody UsuarioRegisterRequest usuarioRegisterRequest)
     {
 
