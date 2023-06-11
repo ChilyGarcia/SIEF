@@ -1,4 +1,9 @@
+import swal from "sweetalert";
 import views from "../views/home.html";
+
+import axios from "axios";
+
+const cors = require("cors");
 
 export default () => {
   const divElement = document.createElement("div");
@@ -12,7 +17,6 @@ export default () => {
   });
 
   */
-
   // INICIO DE SESIÓN
   const data = {
     usernameOrEmail: "",
@@ -54,11 +58,11 @@ export default () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+
+    window.location.href = "#/inicio";
   });
 
-  // REGISTRARSE
-
-  const dataRegister = {
+  const registro = {
     nombre: "",
     username: "",
     email: "",
@@ -69,36 +73,42 @@ export default () => {
   const usernameRegistro = divElement.querySelector("#usernameRegistro");
   const emailRegistro = divElement.querySelector("#emailRegistro");
   const passwordRegistro = divElement.querySelector("#passwordRegistro");
+
   const btnRegistro = divElement.querySelector("#btnRegistro");
 
   btnRegistro.addEventListener("click", () => {
-    dataRegister.nombre = nombreRegistro.value;
-    dataRegister.username = usernameRegistro.value;
-    dataRegister.emailRegistro = emailRegistro.value;
-    dataRegister.passwordRegistro = passwordRegistro.value;
+    const url = "http://localhost:8080/api/auth/registro";
 
-    console.log(dataRegister.nombre);
-    console.log(dataRegister.username);
-    console.log(dataRegister.emailRegistro);
-    console.log(dataRegister.passwordRegistro);
-
-    const url = "http://localhost:8080/api/registro";
+    registro.nombre = nombreRegistro.value;
+    registro.username = usernameRegistro.value;
+    registro.email = emailRegistro.value;
+    registro.password = passwordRegistro.value;
 
     fetch(url, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
       },
-      body: JSON.stringify(dataRegister)
+      body: JSON.stringify(registro),
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Persona registrada:', data);
-        // Realizar acciones adicionales después de registrar la persona
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Respuesta:", data);
+
+        swal({
+          title: "Registro con éxito",
+          text: "El usuario ha sido registrado correctamente",
+          icon: "info",
+          textColor: "#ff0000",
+        });
+
+        //Esto me va a servir para poder dar inicio de sesion dentro de la app
+        // window.location.href = "#/post";
       })
-      .catch(error => {
-        console.error('Error al registrar la persona:', error);
-        // Manejar el error de alguna manera
+      .catch((error) => {
+        console.error("Error:", error);
       });
   });
 
