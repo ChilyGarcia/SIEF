@@ -1,4 +1,4 @@
-import {pages} from "../controllers/index";
+import { pages } from "../controllers/index";
 
 let content = document.getElementById("root");
 
@@ -14,10 +14,13 @@ const router = async (route) => {
       return console.log("products");
 
     case "#/nuevaInfoEstadistica":
-      return content.appendChild(pages.infoEstadistica())
+      return content.appendChild(pages.infoEstadistica());
 
     case "#/inicio":
       return content.appendChild(pages.inicio());
+
+    case "#/informacionEstadistica":
+      return content.appendChild(pages.informacionEstadisttcia());
     default:
       return console.log("404");
   }

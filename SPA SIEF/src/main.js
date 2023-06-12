@@ -26,6 +26,10 @@ btnCerrarSesion.addEventListener('click', () => {
 
 
 
+
+
+
+
 /*
 function mostrarElemento() {
   var elemento = document.getElementById("elemento");
