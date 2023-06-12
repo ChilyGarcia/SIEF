@@ -16,19 +16,11 @@ console.log(validacionToken);
 
 
 
-
-
 const btnCerrarSesion = document.getElementById("cerrarSesion");
 
-btnCerrarSesion.addEventListener('click', () => {
-  localStorage.removeItem('token');
-})
-
-
-
-
-
-
+btnCerrarSesion.addEventListener("click", () => {
+  localStorage.removeItem("token");
+});
 
 /*
 function mostrarElemento() {

@@ -1,11 +1,25 @@
 <div id="elemento">
   <html>
-    <head>
-     
-    </head>
+    <head> </head>
     <body>
       <div class="area">
         <div class="container-table">
+          <div class="formProgramas">
+            <form>
+              <div class="form-group">
+                <label for="exampleFormControlSelect1"
+                  >Informacion estadistica de la carrera:
+                </label>
+                <select class="form-control" id="mySelect">
+                  <option value="230319">ingenieria de software</option>
+                  <option value="220102">Diseño de modas</option>
+                </select>
+              </div>
+              <button type="button" id="btnForm" class="btn btn-outline-danger">
+                Obtener información
+              </button>
+            </form>
+          </div>
           <table id="miTabla" class="rwd-table">
             <thead>
               <tr>
@@ -31,18 +45,6 @@
               <i class="fa fa-globe fa-2x"></i>
               <span class="nav-text"> Información estadística </span>
             </a>
-            <ul class="submenu">
-              <li>
-                <a href="#/informacionEstadistica" data-menu-id="220102">
-                  <span class="nav-text">Diseño de modas</span>
-                </a>
-              </li>
-              <li>
-                <a href="#/informacionEstadistica" data-menu-id="230319">
-                  <span class="nav-text">Ingenieria de software</span>
-                </a>
-              </li>
-            </ul>
           </li>
           <li>
             <a href="#/nuevaInfoEstadistica">
