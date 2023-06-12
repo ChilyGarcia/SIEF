@@ -15,13 +15,18 @@
                   <option value="220102">Diseño de modas</option>
                 </select>
               </div>
-              <button type="button" id="btnForm" class="btn btn-outline-danger">
-                Obtener información
-              </button>
+              <div class="button-group">
+                <button type="button" id="btnForm" class="btn btn-outline-danger" style="margin-right: 10px; margin-left: 0;">
+                  Obtener información
+                </button>
+                <button type="button" id="exportarExcel" class="btn btn-outline-success">
+                  Excel
+                </button>
+              </div>
             </form>
           </div>
           <div class="tabla-contenedor">
-            <table class="tabla">
+            
               <table id="miTabla" class="tabla rwd-table">
                 <thead>
                   <tr>
@@ -32,7 +37,7 @@
                   <!-- Aquí se generarán las filas de la tabla -->
                 </tbody>
               </table>
-            </table>
+            
           </div>
         </div>
       </div>

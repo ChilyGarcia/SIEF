@@ -651,7 +651,6 @@ $breakpoint-alpha: 480px; // adjust to your needs
 }
 
 table {
- 
 }
 
 .grafico1 {
@@ -703,4 +702,8 @@ table {
   width: 100%; /* Opcional: ajusta el ancho de la tabla según tus necesidades */
 }
 
-
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  
+}

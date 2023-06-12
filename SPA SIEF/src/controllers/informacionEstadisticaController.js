@@ -5,6 +5,18 @@ export default () => {
   divElement.innerHTML = views;
   divElement.classList = "text-white";
 
+  const btnExcel = divElement.querySelector("#exportarExcel");
+
+  btnExcel.addEventListener("click", () => {
+    var tabla = document.getElementById("miTabla");
+
+    // Crear una nueva hoja de cálculo de Excel
+    var libro = XLSX.utils.table_to_book(tabla);
+
+    // Guardar el archivo de Excel
+    XLSX.writeFile(libro, "tabla_excel.xlsx");
+  });
+
   const btnForm = divElement.querySelector("#btnForm");
 
   btnForm.addEventListener("click", () => {
