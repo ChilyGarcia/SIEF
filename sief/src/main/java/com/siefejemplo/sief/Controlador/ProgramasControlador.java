@@ -33,4 +33,20 @@ public class ProgramasControlador {
 
         return new ResponseEntity<>(programasService.agregarServicio(programaRequest), HttpStatus.CREATED);
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/listaProgramas")
+    public ResponseEntity<?> listaTotalProgramas ()
+    {
+        return new ResponseEntity<>(programasService.listaDeProgramas(), HttpStatus.OK);
+    }
+
+    @CrossOrigin(origins = "http://localhost:8081")
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/listaProgramaPorCodigo/{codigo}")
+    public ResponseEntity<?> listaProgramaCodigo(@PathVariable("codigo")String codigo){
+        return new ResponseEntity<>(programasService.listaProgramasCodigo(codigo), HttpStatus.OK);
+    }
+
+
 }

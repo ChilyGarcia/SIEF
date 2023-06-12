@@ -9,6 +9,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 @Service
 public class ProgramasServiceImpl implements ProgramasServicio {
 
@@ -27,6 +31,31 @@ public class ProgramasServiceImpl implements ProgramasServicio {
         programasRepository.save(programas);
 
         ProgramaResponse response = modelMapper.map(programas, ProgramaResponse.class);
+
+        return response;
+    }
+
+    @Override
+    public List<Programas> listaDeProgramas() {
+
+        List<Programas> listaProgramasTotal = programasRepository.findAll();
+
+
+        return listaProgramasTotal;
+    }
+
+    @Override
+    public List<Programas> listaProgramasCodigo(String codigo) {
+
+        List<Programas> response = new ArrayList<>();
+        List<Programas> programas = programasRepository.findAll();
+
+        for(Programas programa : programas){
+            if(Objects.equals(programa.getCodigoPrograma(),codigo)){
+                response.add(programa);
+            }
+
+        }
 
         return response;
     }
