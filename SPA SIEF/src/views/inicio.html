@@ -6,7 +6,7 @@
       <nav class="main-menu">
         <ul>
           <li>
-            <a href="https://jbfarrow.com">
+            <a href="#/inicio">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text"> Inicio </span>
             </a>
@@ -14,63 +14,38 @@
           <li class="has-subnav">
             <a href="#/">
               <i class="fa fa-globe fa-2x"></i>
-              <span class="nav-text"> Informacion estadistica </span>
+              <span class="nav-text"> Información estadística </span>
             </a>
           </li>
-          <!-- 
-              <li class="has-subnav">
-                  <a href="#">
-                     <i class="fa fa-comments fa-2x"></i>
-                      <span class="nav-text">
-                          Group Hub Forums
-                      </span>
-                  </a>
-                  
-              </li>
-
-          
-              <li class="has-subnav">
-                  <a href="#">
-                     <i class="fa fa-camera-retro fa-2x"></i>
-                      <span class="nav-text">
-                          Survey Photos
-                      </span>
-                  </a>
-                 
-              </li>
-
-      
-              <li>
-                  <a href="#">
-                      <i class="fa fa-film fa-2x"></i>
-                      <span class="nav-text">
-                          Surveying Tutorials
-                      </span>
-                  </a>
-              </li>
-
-          -->
-   
-          <div>
-            <li>
-              <a href="#/nuevaInfoEstadistica">
-                <i class="fa fa-book fa-2x"></i>
-                <span class="nav-text"> Nueva informacion estadistica </span>
-              </a>
-            </li>
-          </div>
-        
           <li>
+            <a href="#/nuevaInfoEstadistica">
+              <i class="fa fa-book fa-2x"></i>
+              <span class="nav-text"> Nueva informacion estadistica </span>
+            </a>
+          </li>
+          <li class="has-subnav">
             <a href="#/">
               <i class="fa fa-info fa-2x"></i>
-              <span class="nav-text"> Informacion historica </span>
+              <span class="nav-text"> Información histórica </span>
             </a>
+            <ul class="submenu">
+              <li>
+                <a href="#/sub-menu1">
+                  <span class="nav-text"> Submenú 1 </span>
+                </a>
+              </li>
+              <li>
+                <a href="#/sub-menu2">
+                  <span class="nav-text"> Submenú 2 </span>
+                </a>
+              </li>
+              <!-- Agrega más elementos de submenú si es necesario -->
+            </ul>
           </li>
-
           <li>
             <a href="#/">
               <i class="fa fa-cogs fa-2x"></i>
-              <span class="nav-text"> Configuracion de cuenta </span>
+              <span class="nav-text"> Configuración de cuenta </span>
             </a>
           </li>
         </ul>
@@ -84,6 +59,23 @@
           </li>
         </ul>
       </nav>
+
+      <style>
+        .submenu {
+          display: none;
+          position: absolute;
+          background-color: black; /* Cambia el color de fondo del submenú a negro */
+          color: white; /* Cambia el color de las letras del submenú a blanco */
+          font-weight: bold; /* Aplica negrita a las letras del submenú */
+          padding: 10px;
+          left: 100%;
+          top: 0;
+        }
+
+        .has-subnav:hover .submenu {
+          display: block;
+        }
+      </style>
     </body>
   </html>
 </div>

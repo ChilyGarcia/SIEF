@@ -14,9 +14,7 @@ const divElement = document.createElement("div");
 
 console.log(validacionToken);
 
-persona = {
-  comprobacion: true
-}
+
 
 
 
