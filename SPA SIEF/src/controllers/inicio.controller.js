@@ -5,6 +5,25 @@ export default () => {
   divElement.innerHTML = views;
   divElement.classList = "text-white";
 
+
+  const valorCaracterizacion = divElement.querySelector("#nuevaInfoEst");
+  valorCaracterizacion.style.display = "none";
+
+  const valorRegistroUsuarios = divElement.querySelector("#registroUsuarios");
+  valorRegistroUsuarios.style.display = "none";
+
+  const autoridades = localStorage.getItem("roles");
+
+  console.log(autoridades);
+
+  if(autoridades == "ROLE_ADMIN"){
+    valorCaracterizacion.style.display = "initial";
+    valorRegistroUsuarios.style.display = "initial";
+
+  }
+  
+
+
   var listaAdmitidos = [];
   var listaGraduados = [];
   var listaInscritos = [];

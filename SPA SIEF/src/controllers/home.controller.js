@@ -47,6 +47,7 @@ export default () => {
       .then((data) => {
         console.log("Respuesta:", data);
         localStorage.setItem("token", data.tokenDeAcceso);
+        localStorage.setItem("roles", data.roles);
         console.log(
           "Se ha almacenado en el localStorage el token:",
           data.tokenDeAcceso
@@ -60,6 +61,9 @@ export default () => {
       });
 
     window.location.href = "#/inicio";
+    setTimeout(function() {
+      location.reload();
+    }, 500);
   });
 
   const registro = {
