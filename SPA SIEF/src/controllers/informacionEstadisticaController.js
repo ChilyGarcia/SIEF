@@ -9,6 +9,7 @@ export default () => {
   btnCerrarSesion.addEventListener("click", () => {
     localStorage.removeItem("token");
     localStorage.removeItem("roles");
+    localStorage.removeItem("usuario");
   });
 
   const valorCaracterizacion = divElement.querySelector("#nuevaInfoEst");
@@ -17,6 +18,9 @@ export default () => {
   const valorRegistroUsuarios = divElement.querySelector("#registroUsuarios");
   valorRegistroUsuarios.style.display = "none";
 
+  const valorAuditorias = divElement.querySelector("#auditorias");
+  valorAuditorias.style.display = "none";
+
   const autoridades = localStorage.getItem("roles");
 
   console.log(autoridades);
@@ -24,6 +28,7 @@ export default () => {
   if (autoridades == "ROLE_ADMIN") {
     valorCaracterizacion.style.display = "initial";
     valorRegistroUsuarios.style.display = "initial";
+    valorAuditorias.style.display = "initial";
   }
 
   const btnExcel = divElement.querySelector("#exportarExcel");
@@ -48,7 +53,6 @@ export default () => {
 
     const url =
       "http://localhost:8080/programas/listaProgramaPorCodigo/" + selectedValue;
-
     fetch(url, {
       headers: {
         "Content-Type": "application/json",

@@ -16,8 +16,6 @@ console.log(validacionToken);
 
 const btnCerrarSesion = document.getElementById("cerrarSesion");
 
-
-
 /*
 function mostrarElemento() {
   var elemento = document.getElementById("elemento");

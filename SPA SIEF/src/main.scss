@@ -48,6 +48,7 @@ a {
   backface-visibility: hidden;
   transition: all 0.4s linear;
 }
+
 .container {
   margin-top: 3em;
 }
@@ -707,4 +708,10 @@ table {
 .button-group {
   display: flex;
   justify-content: space-between;
+}
+
+.tabla-auditoria {
+  margin-left: 9%;
+  width: 1150px;
+  overflow-y: auto; /* Agrega el desplazamiento vertical */
 }

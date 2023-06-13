@@ -24,7 +24,11 @@ const router = async (route) => {
 
     case "#/registroUsuarios":
       return content.appendChild(pages.registrarUsuarios());
-    
+
+    case "#/auditorias":
+      return content.appendChild(pages.auditorias()); 
+      
+      
     default:
       return console.log("404");
   }

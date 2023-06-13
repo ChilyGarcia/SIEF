@@ -9,6 +9,7 @@ export default () => {
   btnCerrarSesion.addEventListener("click", () => {
     localStorage.removeItem("token");
     localStorage.removeItem("roles");
+    localStorage.removeItem("usuario");
   });
 
   const data = {
@@ -19,6 +20,12 @@ export default () => {
     admitidos: "",
     matriculados: "",
     graduados: "",
+  };
+
+  const auditoria = {
+    usuario: localStorage.getItem("usuario"),
+    tipoMoficacion: "creado",
+    programa: "",
   };
 
   const codigoPrograma = divElement.querySelector("#codigo");
@@ -33,7 +40,9 @@ export default () => {
 
   btn.addEventListener("click", () => {
     const token = localStorage.getItem("token");
-    console.log(token);
+
+
+
     const urlCorreo = "http://localhost:8080/programas/enviarEmail";
 
     fetch(urlCorreo, {
@@ -69,6 +78,8 @@ export default () => {
     data.matriculados = matriculados.value;
     data.graduados = graduados.value;
 
+    auditoria.programa = nombreDelPrograma.value;
+
     console.log("Codigo programa", data.codigoPrograma);
     console.log("Nombre programa", data.nombreDelPrograma);
     console.log("Periodo", data.periodo);
@@ -100,6 +111,33 @@ export default () => {
 
         //Esto me va a servir para poder dar inicio de sesion dentro de la app
         // window.location.href = "#/post";
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+
+
+    const urlAuditoria =
+      "http://localhost:8080/programas/guardarFecha/" +
+      auditoria.usuario +
+      "/" +
+      auditoria.tipoMoficacion +
+      "/" +
+      auditoria.programa;
+
+    fetch(urlAuditoria, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        Authorization: "Bearer " + token,
+      },
+      body: JSON.stringify(auditoria),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Respuesta:", data);
       })
       .catch((error) => {
         console.error("Error:", error);

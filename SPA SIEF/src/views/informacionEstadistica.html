@@ -16,43 +16,56 @@
                 </select>
               </div>
               <div class="button-group">
-                <button type="button" id="btnForm" class="btn btn-outline-danger" style="margin-right: 10px; margin-left: 0;">
+                <button
+                  type="button"
+                  id="btnForm"
+                  class="btn btn-outline-danger"
+                  style="margin-right: 10px; margin-left: 0"
+                >
                   Obtener información
                 </button>
-                <button type="button" id="exportarExcel" class="btn btn-outline-success">
+                <button
+                  type="button"
+                  id="exportarExcel"
+                  class="btn btn-outline-success"
+                >
                   Excel
                 </button>
               </div>
             </form>
           </div>
           <div class="tabla-contenedor">
-            
-              <table id="miTabla" class="tabla rwd-table">
-                <thead>
-                  <tr>
-                    <!-- Agrega aquí los encabezados de las columnas adicionales -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <!-- Aquí se generarán las filas de la tabla -->
-                </tbody>
-              </table>
-            
+            <table id="miTabla" class="tabla rwd-table">
+              <thead>
+                <tr>
+                  <!-- Agrega aquí los encabezados de las columnas adicionales -->
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Aquí se generarán las filas de la tabla -->
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
       <nav class="main-menu">
         <ul>
           <li>
-            <a href="#/inicio">
+            <a href="#/inicio" class="hiden">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text"> Graficas estadisticas </span>
             </a>
           </li>
           <li class="has-subnav">
-            <a href="#/informacionEstadistica" >
+            <a href="#/informacionEstadistica">
               <i class="fa fa-globe fa-2x"></i>
               <span class="nav-text"> Información estadística </span>
+            </a>
+          </li>
+          <li class="has-subnav">
+            <a href="#/auditorias" id="auditorias">
+              <i class="fa fa-comments fa-2x"></i>
+              <span class="nav-text"> Auditorias </span>
             </a>
           </li>
           <li>
@@ -122,7 +135,7 @@
           <li>
             <a href="#/registroUsuarios" id="registroUsuarios">
               <i class="fa fa-cogs fa-2x"></i>
-              <span class="nav-text"> Registrar usuarios </span>
+              <span class="nav-text">Registrar usuario </span>
             </a>
           </li>
         </ul>

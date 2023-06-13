@@ -9,6 +9,7 @@ export default () => {
   btnCerrarSesion.addEventListener("click", () => {
     localStorage.removeItem("token");
     localStorage.removeItem("roles");
+    localStorage.removeItem("usuario");
   });
 
   const data = {
@@ -61,7 +62,7 @@ export default () => {
 
         swal({
           title: "Registro con éxito",
-          text: "Se haa guardado correctamente la caracterizacion de ese programa",
+          text: "Se registro con exito un usuario",
           icon: "info",
           textColor: "#ff0000",
         });

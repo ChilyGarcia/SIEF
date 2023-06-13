@@ -35,6 +35,8 @@ export default () => {
     console.log(data.usernameOrEmail);
     console.log(data.password);
 
+    localStorage.setItem("usuario", usernameOrEmail.value)
+
     const url = "http://localhost:8080/api/auth/iniciarSesion";
 
     
@@ -50,6 +52,7 @@ export default () => {
         console.log("Respuesta:", data);
         localStorage.setItem("token", data.tokenDeAcceso);
         localStorage.setItem("roles", data.roles);
+        
         console.log(
           "Se ha almacenado en el localStorage el token:",
           data.tokenDeAcceso

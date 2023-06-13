@@ -5,15 +5,12 @@ export default () => {
   divElement.innerHTML = views;
   divElement.classList = "text-white";
 
-
   const btnCerrarSesion = divElement.querySelector("#cerrarSesion");
-  btnCerrarSesion.addEventListener("click", ()=>{
+  btnCerrarSesion.addEventListener("click", () => {
     localStorage.removeItem("token");
     localStorage.removeItem("roles");
-  })
-
-
-
+    localStorage.removeItem("usuario");
+  });
 
   const valorCaracterizacion = divElement.querySelector("#nuevaInfoEst");
   valorCaracterizacion.style.display = "none";
@@ -21,17 +18,18 @@ export default () => {
   const valorRegistroUsuarios = divElement.querySelector("#registroUsuarios");
   valorRegistroUsuarios.style.display = "none";
 
+  const valorAuditorias = divElement.querySelector("#auditorias");
+  valorAuditorias.style.display = "none";
+
   const autoridades = localStorage.getItem("roles");
 
   console.log(autoridades);
 
-  if(autoridades == "ROLE_ADMIN"){
+  if (autoridades == "ROLE_ADMIN") {
     valorCaracterizacion.style.display = "initial";
     valorRegistroUsuarios.style.display = "initial";
-
+    valorAuditorias.style.display = "initial";
   }
-  
-
 
   var listaAdmitidos = [];
   var listaGraduados = [];
@@ -80,7 +78,7 @@ export default () => {
         var ctx = divElement.querySelector("#myChart").getContext("2d");
 
         ctx.canvas.height = 380;
-        ctx.canvas.width =250
+        ctx.canvas.width = 250;
 
         // Define los datos que quieres graficar
         var data = {
@@ -103,7 +101,7 @@ export default () => {
         var ctx2 = divElement.querySelector("#myChart2").getContext("2d");
 
         ctx2.canvas.height = 380;
-        ctx2.canvas.width =250
+        ctx2.canvas.width = 250;
         var data2 = {
           labels: ["2019-1", "2019-2", "2020-1", "2020-2", "2021-1"],
           datasets: [
@@ -121,7 +119,7 @@ export default () => {
 
         var ctx3 = divElement.querySelector("#myChart3").getContext("2d");
         ctx3.canvas.height = 380;
-        ctx3.canvas.width =250
+        ctx3.canvas.width = 250;
         var data3 = {
           labels: ["2019-1", "2019-2", "2020-1", "2020-2", "2021-1"],
           datasets: [
@@ -139,7 +137,7 @@ export default () => {
 
         var ctx4 = divElement.querySelector("#myChart4").getContext("2d");
         ctx4.canvas.height = 380;
-        ctx4.canvas.width =250
+        ctx4.canvas.width = 250;
         var data3 = {
           labels: ["2019-1", "2019-2", "2020-1", "2020-2", "2021-1"],
           datasets: [
