@@ -67,9 +67,9 @@ public class ProgramasControlador {
     @CrossOrigin(origins = "http://localhost:8081")
     @GetMapping("enviarEmail")
     public String sendEmail() {
-        String to = "recipient@example.com";
-        String subject = "Correo de prueba";
-        String body = "¡Hola! Este es un correo de prueba enviado desde Spring Boot.";
+        String to = "siefusuarioprop@gmail.com";
+        String subject = "Caracterizacion con éxito";
+        String body = "Se han hecho modificaciones nuevas en el apartado de carcaterizacion para nuevos programass";
 
         emailService.sendEmail(to, subject, body);
 
