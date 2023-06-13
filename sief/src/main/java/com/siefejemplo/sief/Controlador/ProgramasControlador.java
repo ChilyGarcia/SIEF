@@ -1,8 +1,11 @@
 package com.siefejemplo.sief.Controlador;
 
+import com.siefejemplo.sief.Servicios.EmailService;
 import com.siefejemplo.sief.Servicios.implementaciones.ProgramasServiceImpl;
 import com.siefejemplo.sief.dto.request.ProgramaRequest;
 import com.siefejemplo.sief.dto.response.ProgramaResponse;
+import com.siefejemplo.sief.modelos.Auditorias;
+import com.siefejemplo.sief.repositorios.AuditoriasRepository;
 import com.siefejemplo.sief.repositorios.ProgramasRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("programas")
 public class ProgramasControlador {
 
+    @Autowired
+    private EmailService emailService;
+    @Autowired
+    private AuditoriasRepository auditoriasRepository;
     @Autowired
     private ModelMapper modelMapper;
 
@@ -45,6 +52,28 @@ public class ProgramasControlador {
     @GetMapping("/listaProgramaPorCodigo/{codigo}")
     public ResponseEntity<?> listaProgramaCodigo(@PathVariable("codigo")String codigo){
         return new ResponseEntity<>(programasService.listaProgramasCodigo(codigo), HttpStatus.OK);
+    }
+
+    @PostMapping("/guardarFecha")
+    public Auditorias guardarfecha()
+    {
+        Auditorias auditorias = new Auditorias();
+
+        return auditoriasRepository.save(auditorias);
+
+    }
+
+
+    @CrossOrigin(origins = "http://localhost:8081")
+    @GetMapping("enviarEmail")
+    public String sendEmail() {
+        String to = "recipient@example.com";
+        String subject = "Correo de prueba";
+        String body = "¡Hola! Este es un correo de prueba enviado desde Spring Boot.";
+
+        emailService.sendEmail(to, subject, body);
+
+        return "Correo electrónico enviado correctamente.";
     }
 
 
