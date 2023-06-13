@@ -1,6 +1,7 @@
 package com.siefejemplo.sief.Controlador;
 
 import com.siefejemplo.sief.Servicios.EmailService;
+import com.siefejemplo.sief.Servicios.implementaciones.AuditoriasServiceImpl;
 import com.siefejemplo.sief.Servicios.implementaciones.ProgramasServiceImpl;
 import com.siefejemplo.sief.dto.request.ProgramaRequest;
 import com.siefejemplo.sief.dto.response.ProgramaResponse;
@@ -17,6 +18,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("programas")
 public class ProgramasControlador {
+
+    @Autowired
+    private AuditoriasServiceImpl auditoriasServiceImpl;
 
     @Autowired
     private EmailService emailService;
@@ -54,12 +58,21 @@ public class ProgramasControlador {
         return new ResponseEntity<>(programasService.listaProgramasCodigo(codigo), HttpStatus.OK);
     }
 
-    @PostMapping("/guardarFecha")
-    public Auditorias guardarfecha()
-    {
-        Auditorias auditorias = new Auditorias();
+    @CrossOrigin(origins = "http://localhost:8081")
+    @GetMapping("/listaAuditorias")
+    public ResponseEntity<?> listaAuditoria(){
+        return new ResponseEntity<>(auditoriasServiceImpl.listaAuditorias(), HttpStatus.OK);
+    }
 
-        return auditoriasRepository.save(auditorias);
+
+    @CrossOrigin(origins = "http://localhost:8081")
+    @PostMapping("/guardarFecha/{usuario}/{tipoModificacion}/{programa}")
+    public ResponseEntity<Auditorias> guardarfecha(@PathVariable("usuario")String usuario,
+                                   @PathVariable("tipoModificacion")String tipoModificacion,
+                                   @PathVariable("programa")String programa)
+    {
+
+        return new ResponseEntity<>(auditoriasServiceImpl.registroAuditoria(usuario, tipoModificacion, programa), HttpStatus.OK);
 
     }
 
@@ -75,6 +88,8 @@ public class ProgramasControlador {
 
         return "Correo electrónico enviado correctamente.";
     }
+
+
 
 
 }
