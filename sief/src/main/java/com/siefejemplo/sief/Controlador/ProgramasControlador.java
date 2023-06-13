@@ -42,7 +42,6 @@ public class ProgramasControlador {
     }
 
     @CrossOrigin(origins = "http://localhost:8081")
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/listaProgramaPorCodigo/{codigo}")
     public ResponseEntity<?> listaProgramaCodigo(@PathVariable("codigo")String codigo){
         return new ResponseEntity<>(programasService.listaProgramasCodigo(codigo), HttpStatus.OK);

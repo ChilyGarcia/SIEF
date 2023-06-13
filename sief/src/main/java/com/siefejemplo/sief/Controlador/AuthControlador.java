@@ -21,9 +21,14 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping(value = "/api/auth")
@@ -63,7 +68,20 @@ public class AuthControlador {
         //obtenemos el token del jwtTokenProvider
         String token = jwtTokenProvider.generarToken(authentication);
 
-        return ResponseEntity.ok(new JWTAuthResponseDTO(token));
+
+        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+        List<String> roles = authorities.stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.toList());
+
+        System.out.println("Roles del usuario autenticado: " + roles);
+
+        // Crear objeto JWTAuthResponseDTO con el token y los roles
+        JWTAuthResponseDTO response = new JWTAuthResponseDTO();
+        response.setTokenDeAcceso(token);
+        response.setRoles(roles);
+
+        return ResponseEntity.ok(response);
     }
 
     @CrossOrigin(origins = "http://localhost:8081")
