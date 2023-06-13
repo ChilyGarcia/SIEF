@@ -55,6 +55,7 @@ a {
 .login-html .sign-up,
 .login-form .group .check {
   display: none;
+  margin-top: none !important;
 }
 .login-html .tab,
 .login-form .group .label,
@@ -391,7 +392,7 @@ nav.main-menu li.active > a,
 }
 
 .login-form-registro .group {
-  margin-bottom: 5px; /* Elimina el margen inferior */
+  margin-bottom: 10px; /* Elimina el margen inferior */
 }
 
 .login-form-registro .input-registro {
@@ -422,7 +423,7 @@ h2 small {
   text-align: center;
 }
 .footer a {
-  color: #53b2c8;
+  color: #f04d4d;
 }
 
 /* form starting stylings ------------------------------- */
@@ -431,10 +432,11 @@ h2 small {
   margin-bottom: 45px;
 }
 .input-registro {
-  font-size: 18px;
+  font-size: 14px;
   padding: 10px 10px 10px 5px;
   display: block;
   width: 300px;
+
   border: none;
   border-bottom: 1px solid #757575;
 }
@@ -445,7 +447,7 @@ input:focus {
 /* LABEL ======================================= */
 .label-registro {
   color: #999;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
@@ -461,7 +463,7 @@ input:focus ~ label,
 input:valid ~ label {
   top: -20px;
   font-size: 14px;
-  color: #5264ae;
+  color: #f84444;
 }
 
 /* BOTTOM BARS ================================= */
@@ -477,7 +479,7 @@ input:valid ~ label {
   width: 0;
   bottom: 1px;
   position: absolute;
-  background: #5264ae;
+  background: #f84444;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -705,6 +707,4 @@ table {
 .button-group {
   display: flex;
   justify-content: space-between;
-  
 }
-

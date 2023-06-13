@@ -4,6 +4,7 @@ import Inicio from './inicio.controller.js'
 import notFound from './404.controller.js';
 import NuevaInfoEstadistica from './nuevaInfoEstadistica.js';
 import InformacionEstadistica from './informacionEstadisticaController.js';
+import registrarUsuariosController from './registrarUsuariosController.js';
 
 
 const pages = {
@@ -12,7 +13,8 @@ const pages = {
     isNotFound : notFound,
     inicio: Inicio,
     infoEstadistica: NuevaInfoEstadistica,
-    informacionEstadisttcia : InformacionEstadistica
+    informacionEstadisttcia : InformacionEstadistica,
+    registrarUsuarios : registrarUsuariosController
 
 }
 

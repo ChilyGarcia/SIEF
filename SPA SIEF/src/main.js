@@ -20,6 +20,7 @@ const btnCerrarSesion = document.getElementById("cerrarSesion");
 
 btnCerrarSesion.addEventListener("click", () => {
   localStorage.removeItem("token");
+  localStorage.removeItem("roles");
 });
 
 /*

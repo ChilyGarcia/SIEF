@@ -1,53 +1,89 @@
 <div id="elemento">
   <html>
-    <head>
-      
-     
-      </head>
+    <head> </head>
     <body>
+      <div class="area">
+        <div class="container-form">
+          <form class="login-form-registro" action="javascript:void(0);">
+            <h1>Registro usuario</h1>
 
-      <div class="grafico1">
-        <div class="fila">
-          <div class="item item1"><canvas id="myChart"></canvas></div>
-          <div class="item item2"><canvas id="myChart2"></canvas>
-        </div>
-        <div class="fila">
-          <div class="item item3"><canvas id="myChart3"></canvas></div>
-          <div class="item item4"><canvas id="myChart4"></canvas></div>
-        </div>
-        
-      </div>
+            <div class="group">
+              <input
+                class="input-registro"
+                type="text"
+                name="nombre"
+                id="nombre"
+                autocomplete="off"
+                required
+              />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="label-registro">Nombre</label>
+            </div>
 
-      
-      
-        
-      
+            <div class="group">
+              <input
+                class="input-registro"
+                type="text"
+                name="username"
+                id="username"
+                autocomplete="off"
+                required
+              />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="label-registro">Username</label>
+            </div>
 
-        <div class="formGrafica">
-          <form>
+            <div class="group">
+              <input
+                class="input-registro"
+                type="text"
+                name="email"
+                id="email"
+                autocomplete="off"
+                required
+              />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="label-registro">Email</label>
+            </div>
+
+            <div class="group">
+              <input
+                class="input-registro"
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="off"
+                required
+              />
+              <span class="highlight"></span>
+              <span class="bar"></span>
+              <label class="label-registro">Password</label>
+            </div>
+
             <div class="form-group">
-              <label for="exampleFormControlSelect1"></label>
-                Grafica estadistica de la carrera:
-              </label>
               <select class="form-control" id="mySelect">
-                <option value="230319">ingenieria de software</option>
-                <option value="220102">Diseño de modas</option>
+                <option value="ROLE_USER">Usuario</option>
+                <option value="ROLE_ADMIN">Administrador</option>
               </select>
             </div>
-            <button type="button" id="btnFormGrafico" class="btn btn-outline-danger" style="margin-left: 27px;">
-              Obtener información
+
+            <button
+              id="btnRegistrar"
+              type="submit"
+              class="btn btn-outline-danger"
+            >
+              Hacer registro
             </button>
           </form>
         </div>
-   
-
-      <div class="area">
-        
       </div>
       <nav class="main-menu">
         <ul>
           <li>
-            <a href="#/inicio" class="hiden" >
+            <a href="#/inicio">
               <i class="fa fa-home fa-2x"></i>
               <span class="nav-text"> Graficas estadisticas </span>
             </a>
@@ -123,9 +159,9 @@
             </ul>
           </li>
           <li>
-            <a href="#/registroUsuarios" id="registroUsuarios">
+            <a href="#/registroUsuarios">
               <i class="fa fa-cogs fa-2x"></i>
-              <span class="nav-text">Registrar usuario </span>
+              <span class="nav-text"> Registrar usuarios </span>
             </a>
           </li>
         </ul>

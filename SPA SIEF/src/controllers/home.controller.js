@@ -14,6 +14,7 @@ export default () => {
   const btnClick = divElement.querySelector("#btnClick");
   btnClick.addEventListener("click", () => {
     alert("a");
+    alert("a");
   });
 
   */
