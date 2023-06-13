@@ -37,6 +37,7 @@ export default () => {
 
     const url = "http://localhost:8080/api/auth/iniciarSesion";
 
+    
     fetch(url, {
       method: "POST",
       headers: {
@@ -60,12 +61,13 @@ export default () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+      
 
-    window.location.href = "#/inicio";
-    setTimeout(function() {
-      location.reload();
-    }, 500);
-  });
+     window.location.href = "#/inicio";
+
+     
+     
+   });
 
   const registro = {
     nombre: "",

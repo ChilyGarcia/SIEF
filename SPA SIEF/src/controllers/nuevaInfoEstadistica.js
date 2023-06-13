@@ -5,6 +5,12 @@ export default () => {
   divElement.innerHTML = views;
   divElement.classList = "text-white";
 
+  const btnCerrarSesion = divElement.querySelector("#cerrarSesion");
+  btnCerrarSesion.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("roles");
+  });
+
   const data = {
     codigoPrograma: "",
     nombreDelPrograma: "",
@@ -28,6 +34,30 @@ export default () => {
   btn.addEventListener("click", () => {
     const token = localStorage.getItem("token");
     console.log(token);
+    const urlCorreo = "http://localhost:8080/programas/enviarEmail";
+
+    fetch(urlCorreo, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "*",
+        Authorization: "Bearer " + token,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.text();
+        } else {
+          throw new Error("Error en la petición");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
 
     const url = "http://localhost:8080/api/auth/guardarPrograma";
 

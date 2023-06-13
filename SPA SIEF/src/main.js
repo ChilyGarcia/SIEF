@@ -14,14 +14,9 @@ const divElement = document.createElement("div");
 
 console.log(validacionToken);
 
-
-
 const btnCerrarSesion = document.getElementById("cerrarSesion");
 
-btnCerrarSesion.addEventListener("click", () => {
-  localStorage.removeItem("token");
-  localStorage.removeItem("roles");
-});
+
 
 /*
 function mostrarElemento() {

@@ -5,6 +5,12 @@ export default () => {
   divElement.innerHTML = views;
   divElement.classList = "text-white";
 
+  const btnCerrarSesion = divElement.querySelector("#cerrarSesion");
+  btnCerrarSesion.addEventListener("click", () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("roles");
+  });
+
   const valorCaracterizacion = divElement.querySelector("#nuevaInfoEst");
   valorCaracterizacion.style.display = "none";
 
